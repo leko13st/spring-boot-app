@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" th:href="@{/css/cssMain.css}"/>
+    <link rel="stylesheet" href="../css/cssMain.css"/>
+</head>
+<body>
+	<div class="block v1">
+		<div class="imgdiv">
+			<img src="../images/1.jpg" width="100%">
+		</div>
+		<div class="text">Название: Ferrari 488 GTB<br/>Тип двигателя: V8<br/>Мощность: 670 л.с.<p>Цена: 17 млн. руб.</p></div>
+		<div class="button">
+			<form action="Applying.html">
+				<button>Арендовать</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

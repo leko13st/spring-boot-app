@@ -1,0 +1,43 @@
+body{
+	background-color: #9CB;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.block{
+	width: 45%;
+	margin: 0 auto;
+	background-color: #DFF;
+	border: 2px solid orange;
+	height: 250px;
+}
+
+.v1{
+	margin-top: 30px;
+}
+
+.v2{
+	margin-top: 30px;
+}
+
+.v3{
+	margin-top: 30px
+}
+
+.imgdiv{
+	float: left;
+	margin:  5px 0 0 5px;
+	height: 250px;
+	width: 30%;
+}
+
+.text{
+	width: 65%;
+	display: inline-block;
+	padding: 5px 5px 5px 5px;
+}
+
+.button{
+	display: inline-block;
+	margin-left: 5px;
+}
