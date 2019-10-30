@@ -19,10 +19,25 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="1SqWWMPMfYBSuADQ48hGps29ZL9" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\MyDocs\JavaProjects\spring-boot-app\SpringTest\src\main\resources\static\css" />
+      <recent name="D:\MyDocs\JavaProjects\spring-boot-app\SpringTest\src\main\resources\static" />
+      <recent name="D:\MyDocs\JavaProjects\spring-boot-app\SpringTest\src\main\resources" />
+      <recent name="D:\MyDocs\JavaProjects\spring-boot-app\SpringTest\src\main\resources\static\css\adca" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">

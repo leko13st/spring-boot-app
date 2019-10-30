@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <title>Getting Started: Serving Web Content</title>
+
+	<title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
 	<link rel="stylesheet" th:href="@{/css/cssMain.css}"/>
-    <link rel="stylesheet" href="../css/cssMain.css"/>
+	<!-- <link rel="stylesheet" href="../static/css/cssMain.css"> -->
 </head>
 <body>
-	<div class="block v1">
-		<div class="imgdiv">
-			<img src="../images/1.jpg" width="100%">
+
+	<div class="block ApplyBlockMain">
+		<div class="blockApply">
+			<div class="text">
+				Название: <span th:text="${carName}"></span><br/>Тип двигателя: <span th:text="${EngineType}"></span><br/>Мощность: <span th:text="${Power}"></span><p>Цена: <span id="price" th:text="${Price}"> руб.</span></p>
+			</div>
 		</div>
-		<div class="text">Название: Ferrari 488 GTB<br/>Тип двигателя: V8<br/>Мощность: 670 л.с.<p>Цена: 17 млн. руб.</p></div>
-		<div class="button">
+		<div class="blockApply">
+			<input class="place" type="text" value="ФИО">
+			<input class="place" type="text" value="Телефон">
+			<input class="place1" type="checkbox" id="cb" onchange="sum()">
+			<p class="place">Итог: <span id="result">adw</span> руб.</p>
+		</div>
+		<div class="button1">
 			<form action="Applying.html">
-				<button>Арендовать</button>
+				<button>Перейти к оплате</button>
 			</form>
 		</div>
 	</div>
 </body>
+<script type="text/javascript" src="../static/js/myJS.js"></script>
 </html>

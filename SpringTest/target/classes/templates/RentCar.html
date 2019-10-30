@@ -1,48 +1,44 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang ="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
-
-    <link rel="stylesheet" th:href="@{/cssMain.css}"/>
-
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/cssMain.css}"/>
+	<link rel="stylesheet" href="../static/css/cssMain.css"/>
 </head>
 <body>
-<!--<h2 th:text="'Hello, ' + ${name} + '!'">awdaw</h2> --> 
 
-	<div class="block v1">
+
+	<div class="block">
 		<div class="imgdiv">
-			<img src="http://localhost/MyDocs/JavaProjects/spring-boot-app/SpringTest/src/main/resources/images/images/1.jpg" width="100%">
+			<img th:src="@{/images/1.jpg}" width="100%">
 		</div>
-		<div class="text">Название: Ferrari 488 GTB<br/>Тип двигателя: V8<br/>Мощность: 670 л.с.<p>Цена: 17 млн. руб.</p></div>
+		<div class="text">Название: <span th:text = "${carName[0]}"></span><br/>Тип двигателя: <span th:text = "${EngineType[0]}"></span><br/>Мощность: <span th:text = "${Power[0]}"></span><p>Цена: <span th:text = "${Price[0]} + ' руб.'"></span></p></div>
 		<div class="button">
-			<form action="Applying.html">
-				<button>Арендовать</button>
-			</form>
+			<button>
+				<a href="http://localhost:8080/rent-auto?name=ferrari">Арендовать</a>
+			</button>
 		</div>
 	</div>
-	<div class="block v2">
+	<div class="block">
 		<div class="imgdiv">
-			<img src="D:/MyDocs/JavaProjects/spring-boot-app/SpringTest/src/main/resources/images/images/2.jpg" width="100%">
+			<img th:src="@{/images/2.jpg}" width="100%">
 		</div>
-		<div class="text">Название: Mercedes Gelandewagen G-Class<br/>Тип двигателя: V8<br/>Мощность: 422 л.с.<p>Цена: 5,6 млн. руб.</p></div>
+		<div class="text">Название: <span th:text = "${carName[1]}"></span><br/>Тип двигателя: <span th:text = "${EngineType[1]}"></span><br/>Мощность: <span th:text = "${Power[1]}"></span><p>Цена: <span th:text = "${Price[1]} + ' руб.'"></span></p></div>
 		<div class="button">
-			<form action="Applying.html">
-				<button>Арендовать</button>
-			</form>
+			<button><a href="http://localhost:8080/rent-auto?name=gelik">Арендовать в каршеринг</a></button>
 		</div>
 	</div>
-	<div class="block v3">
+	<div class="block">
 		<div class="imgdiv">
-			<img src="D:/MyDocs/JavaProjects/spring-boot-app/SpringTest/src/main/resources/images/images/3.jpg" width="100%">
+			<img th:src="@{/images/3.jpg}" width="100%">
 		</div>
-		<div class="text">Название: Porsche 911 Carrera S<br/>Тип двигателя: V6<br/>Мощность: 450 л.с.<p>Цена: 8,1 млн. руб.</p></div>
+		<div class="text">Название: <span th:text = "${carName[2]}"></span><br/>Тип двигателя: <span th:text = "${EngineType[2]}"></span><br/>Мощность: <span th:text = "${Power[2]}"></span><p>Цена: <span th:text = "${Price[2]} + ' руб.'"></span></p></div>
 		<div class="button">
-			<form action="Applying.html">
-				<button>Арендовать</button>
-			</form>
+			<button><a href="http://localhost:8080/rent-auto?name=porsche">Арендовать в каршеринг</a></button>
 		</div>
 	</div>
 </body>
