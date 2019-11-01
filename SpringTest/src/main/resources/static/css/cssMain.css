@@ -1,7 +1,7 @@
 body{
 	background-color: #9CB;
 	margin: 0 auto;
-	overflow: hidden;
+	overflow: auto;
 }
 
 .block{
@@ -14,7 +14,7 @@ body{
 }
 
 .ApplyBlockMain{
-    height: 400px;
+    height: 450px;
 }
 
 a{
@@ -52,7 +52,7 @@ a{
 	background-color: #DFB;
 	border: 2px solid orange;
 	margin-top: 30px;
-	height: 130px;
+	height: 150px;
 }
 
 .place{

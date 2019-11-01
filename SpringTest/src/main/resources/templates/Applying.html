@@ -9,7 +9,7 @@
 	<link rel="stylesheet" th:href="@{/css/cssMain.css}"/>
 	<!-- <link rel="stylesheet" href="../static/css/cssMain.css"> -->
 </head>
-<body>
+<body onload="statePrice()">
 
 	<div class="block ApplyBlockMain">
 		<div class="blockApply">
@@ -20,8 +20,8 @@
 		<div class="blockApply">
 			<input class="place" type="text" value="ФИО">
 			<input class="place" type="text" value="Телефон">
-			<input class="place1" type="checkbox" id="cb" onchange="sum()">
-			<p class="place">Итог: <span id="result">adw</span> руб.</p>
+			<input class="place1" type="checkbox" id="cb" onchange="sum()"> Доставка
+			<p class="place">Итог: <span id="result"></span> руб.</p>
 		</div>
 		<div class="button1">
 			<form action="Applying.html">
@@ -30,5 +30,5 @@
 		</div>
 	</div>
 </body>
-<script type="text/javascript" src="../static/js/myJS.js"></script>
+<script type="text/javascript" th:src="@{/js/myJS.js}"></script>
 </html>
