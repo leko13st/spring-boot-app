@@ -3,14 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="be15e1a5-56fd-4d1e-ae71-d3551af19d98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/cssMain.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/cssMain.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/myJS.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/myJS.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Applying.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Applying.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/RentCar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/RentCar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/SpringTest.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/cssMain.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/cssMain.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/Applying.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Applying.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/RentCar.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/RentCar.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
