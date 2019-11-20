@@ -1,9 +1,18 @@
+
+var result = document.getElementById('result');
+var price = document.getElementById('price');
+
+function statePrice(){
+    result.innerHTML = Number(price.innerHTML);
+}
+
 function sum(){
 	var chbox = document.getElementById('cb');
+
 	if (chbox.checked){
-		document.getElementById('result').InnerHTML = document.getElementById('price') + 3000;
+		result.innerHTML = Number(price.innerHTML) + 3000;
 	}
 	else{
-		document.getElementById('result').InnerHTML = document.getElementById('price');
+		result.innerHTML = Number(price.innerHTML);
 	}
 }
