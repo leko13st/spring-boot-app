@@ -5,18 +5,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:src="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/cssMain.css}"/>
-	<link rel="stylesheet" href="../static/css/cssMain.css"/>
 </head>
 <body>
-
 
 	<div class="block">
 		<div class="imgdiv">
 			<img th:src="@{/images/1.jpg}" width="100%">
 		</div>
-		<div class="text">Название: <span th:text = "${carName[0]}"></span><br/>Тип двигателя: <span th:text = "${EngineType[0]}"></span><br/>Мощность: <span th:text = "${Power[0]}"></span><p>Цена: <span th:text = "${Price[0]} + ' руб.'"></span></p></div>
+		<div class="text">Название: <span th:text = "${cars[0].carName}"></span><br/>Тип двигателя: <span th:text = "${cars[0].engineType}"></span><br/>Мощность: <span th:text = "${cars[0].power}"></span><p>Цена: <span th:text = "${cars[0].price} + ' руб.'"></span></p></div>
 		<div class="button">
 			<button>
 				<a href="http://localhost:8080/rent-auto?name=ferrari">Арендовать в каршеринг</a>
@@ -27,7 +25,7 @@
 		<div class="imgdiv">
 			<img th:src="@{/images/2.jpg}" width="100%">
 		</div>
-		<div class="text">Название: <span th:text = "${carName[1]}"></span><br/>Тип двигателя: <span th:text = "${EngineType[1]}"></span><br/>Мощность: <span th:text = "${Power[1]}"></span><p>Цена: <span th:text = "${Price[1]} + ' руб.'"></span></p></div>
+		<div class="text">Название: <span th:text = "${cars[1].carName}"></span><br/>Тип двигателя: <span th:text = "${cars[1].engineType}"></span><br/>Мощность: <span th:text = "${cars[1].power}"></span><p>Цена: <span th:text = "${cars[1].price} + ' руб.'"></span></p></div>
 		<div class="button">
 			<button><a href="http://localhost:8080/rent-auto?name=gelik">Арендовать в каршеринг</a></button>
 		</div>
@@ -36,7 +34,7 @@
 		<div class="imgdiv">
 			<img th:src="@{/images/3.jpg}" width="100%">
 		</div>
-		<div class="text">Название: <span th:text = "${carName[2]}"></span><br/>Тип двигателя: <span th:text = "${EngineType[2]}"></span><br/>Мощность: <span th:text = "${Power[2]}"></span><p>Цена: <span th:text = "${Price[2]} + ' руб.'"></span></p></div>
+		<div class="text">Название: <span th:text = "${cars[2].carName}"></span><br/>Тип двигателя: <span th:text = "${cars[2].engineType}"></span><br/>Мощность: <span th:text = "${cars[2].power}"></span><p>Цена: <span th:text = "${cars[2].price} + ' руб.'"></span></p></div>
 		<div class="button">
 			<button><a href="http://localhost:8080/rent-auto?name=porsche">Арендовать в каршеринг</a></button>
 		</div>

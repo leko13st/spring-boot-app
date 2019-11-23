@@ -1,20 +1,26 @@
 package com.example.SpringTest;
 
+import com.example.SpringTest.domain.Cars;
+import com.example.SpringTest.repos.CarsRepos;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Map;
+
 @Controller
 public class RentCarController {
-    private String[] carName = { "Ferrari 488 GTB", "Mercedes Gelandewagen G-Class", "Porsche 911 Carrera S"};
-    private String[] EngineType = { "V8", "V8", "V6"};
-    private String[] Power = { "670 л.с.", "422 л.с.", "422 л.с."};
-    private int[] Price = { 50000, 20000, 25000};
+    /*
+    private String carName;
+    private String EngineType;
+    private String Power;
+    private int Price;
 
     @GetMapping("/rentAuto")
-        public String auto(Model model) {
+    public String auto(Model model) {
         model.addAttribute("carName", carName);
         model.addAttribute("EngineType", EngineType);
         model.addAttribute("Power", Power);
@@ -38,9 +44,21 @@ public class RentCarController {
     }
 
     public void addAtr(Model model, int i){
-        model.addAttribute("carName", carName[i]);
+        model.addAttribute("carName", );
         model.addAttribute("EngineType", EngineType[i]);
         model.addAttribute("Power", Power[i]);
         model.addAttribute("Price", Price[i]);
+    }
+     */
+
+    @Autowired
+    private CarsRepos carsRepos;
+    Iterable<Cars> cars;
+
+    @GetMapping("/rent-auto")
+    public String RentCar(Map<String, Object> model) {
+        cars = carsRepos.findAll();
+        model.put("cars", cars);
+        return "RentCar";
     }
 }

@@ -10,7 +10,7 @@ body{
 	background-color: #DFF;
 	border: 2px solid orange;
 	height: 250px;
-	margin-top: 30px;
+	margin-top: 60px;
 }
 
 .ApplyBlockMain{
@@ -52,11 +52,8 @@ a{
 	background-color: #DFB;
 	border: 2px solid orange;
 	margin-top: 30px;
-<<<<<<< HEAD
 	height: 140px;
-=======
 	height: 150px;
->>>>>>> 1d255f61d33e364604655da3bb7468283eff4630
 }
 
 .place{
@@ -68,4 +65,17 @@ a{
 .place1{
 	margin-left: 5%;
 	margin-top: 2%;
+}
+
+#header{
+    height: 50px;
+    background-color: green;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+}
+
+#bucket-div{
+    float: right;
+    width: 50px;
 }
