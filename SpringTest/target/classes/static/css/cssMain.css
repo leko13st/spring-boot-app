@@ -1,82 +1,48 @@
-body{
-	background-color: #9CB;
+table{
 	margin: 0 auto;
-	overflow: auto;
-}
-
-.block{
-	width: 45%;
-	margin: 0 auto;
-	background-color: #DFF;
-	border: 2px solid orange;
-	height: 250px;
-	margin-top: 60px;
-}
-
-.ApplyBlockMain{
-    height: 450px;
-}
-
-a{
-    text-decoration: none;
-}
-
-.imgdiv{
-	float: left;
-	margin:  5px 0 0 5px;
-	height: 250px;
-	width: 30%;
-}
-
-.text{
-	width: 65%;
-	display: inline-block;
-	padding: 5px 5px 5px 5px;
-}
-
-.button{
-	display: inline-block;
-	margin-top: 30px;
-	margin-left: 5px;
-}
-
-.button1{
-	display: inline-block;
+	width: 60%;
 	margin-top: 20px;
-	margin-left: 70%;
+	font-size: 20px;
 }
 
-.blockApply{
-	width: 90%;
+#add-item{
+	font-size: 20px;
+}
+
+header{
 	margin: 0 auto;
-	background-color: #DFB;
-	border: 2px solid orange;
-	margin-top: 30px;
-	height: 140px;
-	height: 150px;
-}
-
-.place{
-	width: 90%;
-	margin-left: 5%;
-	margin-top: 2%;
-}
-
-.place1{
-	margin-left: 5%;
-	margin-top: 2%;
-}
-
-#header{
-    height: 50px;
-    background-color: green;
-    width: 100%;
-    position: fixed;
-    top: 0px;
+	margin-top: 20px;
+	height: 50px;
+	width: 59.8%;
+	border: 2px solid black;
 }
 
 #bucket-div{
     float: right;
     width: 50px;
-    margin-right: 10px;
+    height: 50px;
+}
+
+#item-count{
+    margin: 0 auto;
+    font-size: 20px;
+    padding-left: 8px;
+    color: white;
+}
+
+#item-count-div{
+    background-color: black;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    position: relative;
+    top: -30px;
+    left: -10px;
+}
+
+#input-filter{
+	margin-top: 10px;
+	float: right;
+	margin-right: 20px;
+	font-size: 20px;
 }
