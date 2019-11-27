@@ -52,20 +52,20 @@
 
 	<header>
 		<div id="bucket-div">
-			<img th:src="@{/images/bucket.png}" width="100%">
+			<img th:src="@{/images/bucket.png}" width="100%" id="bucket-img">
 			<div id="item-count-div">
 				<span id="item-count">3</span>
 			</div>
 		</div>
-		<input id="input-filter" type="text" name="" placeholder="Фильтр...">
+		<input id="input-filter" type="text" name="" placeholder="Фильтр..." oninput="inputChange()">
 	</header>
 
-	<table border="1" cellpadding="20" cellspacing="0" height="300px">
+	<table class="table" border="1" cellpadding="20" cellspacing="0" height="300px">
 		<tr>
 			<td rowspan="3" width="30%">
 				<img th:src="@{/images/1.jpg}" width="100%">
 			</td>
-			<td>Название: <span th:text = "${cars[0].carName}"></span></td>
+			<td>Название: <span class="car" th:text = "${cars[0].carName}"></span></td>
 			<td rowspan="2" width="25%">Цена: <span th:text = "${cars[0].price} + ' руб.'"></span></td>
 		</tr>
 		<tr>
@@ -75,18 +75,18 @@
 			<td>Мощность: <span th:text = "${cars[0].power}"></span> л.с.</td>
 			<td align="middle">
 				<form action="">
-					<button id="add-item">Добавить в корзину</button>
+					<button class="add-item">Добавить в корзину</button>
 				</form>
 			</td>
 		</tr>
 	</table>
 
-	<table border="1" cellpadding="20" cellspacing="0" height="300px">
+	<table class="table" border="1" cellpadding="20" cellspacing="0" height="300px">
 		<tr>
 			<td rowspan="3" width="30%">
 				<img th:src="@{/images/2.jpg}" width="100%">
 			</td>
-			<td>Название: <span th:text = "${cars[1].carName}"></span></td>
+			<td>Название: <span class="car" th:text = "${cars[1].carName}"></span></td>
 			<td rowspan="2" width="25%">Цена: <span th:text = "${cars[1].price} + ' руб.'"></span></td>
 		</tr>
 		<tr>
@@ -96,18 +96,18 @@
 			<td>Мощность: <span th:text = "${cars[1].power}"></span> л.с.</td>
 			<td align="middle">
 				<form action="">
-					<button id="add-item">Добавить в корзину</button>
+					<button class="add-item">Добавить в корзину</button>
 				</form>
 			</td>
 		</tr>
 	</table>
 
-	<table border="1" cellpadding="20" cellspacing="0" height="300px">
+	<table class="table" border="1" cellpadding="20" cellspacing="0" height="300px">
 		<tr>
 			<td rowspan="3" width="30%">
 				<img th:src="@{/images/3.jpg}" width="100%">
 			</td>
-			<td>Название: <span th:text = "${cars[2].carName}"></span></td>
+			<td>Название: <span class="car" th:text = "${cars[2].carName}"></span></td>
 			<td rowspan="2" width="25%">Цена: <span th:text = "${cars[2].price} + ' руб.'"></span></td>
 		</tr>
 		<tr>
@@ -117,12 +117,13 @@
 			<td>Мощность: <span th:text = "${cars[2].power}"></span> л.с.</td>
 			<td align="middle">
 				<form action="">
-					<button id="add-item">Добавить в корзину</button>
+					<button class="add-item">Добавить в корзину</button>
 				</form>
 			</td>
 		</tr>
 	</table>
 
-
+	<script type="text/javascript" th:src="@{/js/myJS.js}"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </body>
 </html>

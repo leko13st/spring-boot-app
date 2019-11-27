@@ -5,7 +5,7 @@ table{
 	font-size: 20px;
 }
 
-#add-item{
+.add-item{
 	font-size: 20px;
 }
 
@@ -45,4 +45,8 @@ header{
 	float: right;
 	margin-right: 20px;
 	font-size: 20px;
+}
+
+#bucket-img:hover{
+    background-color: rgba(0, 0, 0, 0.2);
 }
