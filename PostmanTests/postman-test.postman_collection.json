@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "4e81eb26-57a9-490c-b079-cb47452e0650",
+		"name": "postman-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "test1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a78b965c-75df-4e41-9169-27f4b5768a6f",
+						"exec": [
+							"pm.test(\"code\", function(){",
+							"    var mess = pm.response.json();",
+							"    pm.expect(mess.code).to.eql(\"verify.token\");",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://botapi.tamtam.chat/chats",
+					"protocol": "https",
+					"host": [
+						"botapi",
+						"tamtam",
+						"chat"
+					],
+					"path": [
+						"chats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "10818554-936f-4467-b0a4-6fa67419dd79",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Ferrari\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/rent-auto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rent-auto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "da7603ba-c5d9-436b-afa7-772e3cd793bb",
+						"exec": [
+							"pm.test(\"Content-Type header is present\", function () {\r",
+							"    pm.response.to.be.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://botapi.tamtam.chat/chats",
+					"protocol": "https",
+					"host": [
+						"botapi",
+						"tamtam",
+						"chat"
+					],
+					"path": [
+						"chats"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "test3",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://postman-echo.com/post",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"post"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 28 Nov 2019 05:45:23 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "set-cookie",
+							"value": "sails.sid=s%3A41R-8NYI7QCxkp_ElwmrowxYZ_tV3lXG.yIFt81EtqqU0NDX7OdRD9%2FGvx7XNdOJWJzsisuEj9jY; Path=/; HttpOnly"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	],
+	"protocolProfileBehavior": {}
+}
