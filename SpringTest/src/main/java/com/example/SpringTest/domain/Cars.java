@@ -10,10 +10,10 @@ public class Cars {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
 
-    private String name;
-    private String type;
-    private String power;
-    private Integer price;
+    public String name;
+    public String type;
+    public String power;
+    public Integer price;
 
     public Integer getId() {
         return id;
@@ -23,19 +23,19 @@ public class Cars {
         this.id = id;
     }
 
-    public String getCarName() {
+    public String getName() {
         return name;
     }
 
-    public void setCarName(String carName) {
-        this.name = carName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getEngineType() {
+    public String getType() {
         return type;
     }
 
-    public void setEngineType(String engineType) {this.type = engineType; }
+    public void setType(String engineType) {this.type = engineType; }
 
     public String getPower() {
         return power;

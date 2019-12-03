@@ -6,58 +6,24 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" th:src="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
-    <link rel="stylesheet" th:href="@{/css/cssMain.css}"/>
+    <link rel="stylesheet" th:href="@{/css/css-main.css}"/>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
 <body>
-
-	<!--<div id="header">
-		<div id="bucket-div">
-			<img th:src="@{/images/bucket.png}" width="100%">
-			<div id="item-count-div">
-				<span id="item-count">3</span>
-			</div>
-		</div>
-	</div>
-
-
-	<div class="block">
-		<div class="imgdiv">
-			<img th:src="@{/images/1.jpg}" width="100%">
-		</div>
-		<div class="text">Название: <span th:text = "${cars[0].carName}"></span><br/>Тип двигателя: <span th:text = "${cars[0].engineType}"></span><br/>Мощность: <span th:text = "${cars[0].power}"></span><p>Цена: <span th:text = "${cars[0].price} + ' руб.'"></span></p></div>
-		<div class="button">
-			<button>
-				<a href="http://localhost:8080/rent-auto?name=ferrari">Арендовать в каршеринг</a>
-			</button>
-		</div>
-	</div>
-	<div class="block">
-		<div class="imgdiv">
-			<img th:src="@{/images/2.jpg}" width="100%">
-		</div>
-		<div class="text">Название: <span th:text = "${cars[1].carName}"></span><br/>Тип двигателя: <span th:text = "${cars[1].engineType}"></span><br/>Мощность: <span th:text = "${cars[1].power}"></span><p>Цена: <span th:text = "${cars[1].price} + ' руб.'"></span></p></div>
-		<div class="button">
-			<button><a href="http://localhost:8080/rent-auto?name=gelik">Арендовать в каршеринг</a></button>
-		</div>
-	</div>
-	<div class="block">
-		<div class="imgdiv">
-			<img th:src="@{/images/3.jpg}" width="100%">
-		</div>
-		<div class="text">Название: <span th:text = "${cars[2].carName}"></span><br/>Тип двигателя: <span th:text = "${cars[2].engineType}"></span><br/>Мощность: <span th:text = "${cars[2].power}"></span><p>Цена: <span th:text = "${cars[2].price} + ' руб.'"></span></p></div>
-		<div class="button">
-			<button><a href="http://localhost:8080/rent-auto?name=porsche">Арендовать в каршеринг</a></button>
-		</div>
-	</div>-->
-
 	<header>
-		<div id="bucket-div">
-			<img th:src="@{/images/bucket.png}" width="100%" id="bucket-img">
-			<div id="item-count-div">
-				<span id="item-count">3</span>
-			</div>
+		<div id="title-text">
+			Аренда авто
 		</div>
-		<input id="input-filter" type="text" name="" placeholder="Фильтр..." oninput="inputChange()">
+		<div id="bucket-div">
+            <a href="http://localhost:8080/bucket">
+                <img th:src="@{/images/bucket.png}" width="100%" id="bucket-img">
+                <div id="item-count-div">
+                    <span id="item-count" th:text="${bucket}"></span>
+                </div>
+            </a>
+		</div>
+		<input id="input-filter" type="text" name="asd" placeholder="Фильтр..." oninput="inputChange()">
 	</header>
 
 	<table class="table" border="1" cellpadding="20" cellspacing="0" height="300px">
@@ -65,65 +31,80 @@
 			<td rowspan="3" width="30%">
 				<img th:src="@{/images/1.jpg}" width="100%">
 			</td>
-			<td>Название: <span class="car" th:text = "${cars[0].carName}"></span></td>
-			<td rowspan="2" width="25%">Цена: <span th:text = "${cars[0].price} + ' руб.'"></span></td>
+			<td>Название: <span class="car" th:text = "${cars[0].name}"></span></td>
+			<td rowspan="2" width="25%">Цена: <span th:text = "${cars[0].price}"></span></td>
 		</tr>
 		<tr>
-			<td>Тип двигателя: <span th:text = "${cars[0].engineType}"></span></td>
+			<td>Тип двигателя: <span th:text = "${cars[0].type}"></span></td>
 		</tr>
 		<tr>
 			<td>Мощность: <span th:text = "${cars[0].power}"></span> л.с.</td>
 			<td align="middle">
-				<form action="">
-					<button class="add-item">Добавить в корзину</button>
+				<form>
+                    <input class="bucket-input" type="text" name="auto" th:value="${cars[0].name}">
+					<input type="submit" class="add-item" value="Добавить в корзину">
 				</form>
 			</td>
 		</tr>
 	</table>
 
-	<table class="table" border="1" cellpadding="20" cellspacing="0" height="300px">
-		<tr>
-			<td rowspan="3" width="30%">
-				<img th:src="@{/images/2.jpg}" width="100%">
-			</td>
-			<td>Название: <span class="car" th:text = "${cars[1].carName}"></span></td>
-			<td rowspan="2" width="25%">Цена: <span th:text = "${cars[1].price} + ' руб.'"></span></td>
-		</tr>
-		<tr>
-			<td>Тип двигателя: <span th:text = "${cars[1].engineType}"></span></td>
-		</tr>
-		<tr>
-			<td>Мощность: <span th:text = "${cars[1].power}"></span> л.с.</td>
-			<td align="middle">
-				<form action="">
-					<button class="add-item">Добавить в корзину</button>
-				</form>
-			</td>
-		</tr>
-	</table>
+	<div id="get"></div>
 
-	<table class="table" border="1" cellpadding="20" cellspacing="0" height="300px">
-		<tr>
-			<td rowspan="3" width="30%">
-				<img th:src="@{/images/3.jpg}" width="100%">
-			</td>
-			<td>Название: <span class="car" th:text = "${cars[2].carName}"></span></td>
-			<td rowspan="2" width="25%">Цена: <span th:text = "${cars[2].price} + ' руб.'"></span></td>
-		</tr>
-		<tr>
-			<td>Тип двигателя: <span th:text = "${cars[2].engineType}"></span></td>
-		</tr>
-		<tr>
-			<td>Мощность: <span th:text = "${cars[2].power}"></span> л.с.</td>
-			<td align="middle">
-				<form action="">
-					<button class="add-item">Добавить в корзину</button>
-				</form>
-			</td>
-		</tr>
-	</table>
+<!--
 
+    <table class="table" border="1" cellpadding="20" cellspacing="0" height="300px">
+        <tr>
+            <td rowspan="3" width="30%">
+                <img th:src="@{/images/2.jpg}" width="100%">
+            </td>
+            <td>Название: <span class="car" th:text = "${cars[1].name}"></span></td>
+            <td rowspan="2" width="25%">Цена: <span th:text = "${cars[1].price} + ' руб.'"></span></td>
+        </tr>
+        <tr>
+            <td>Тип двигателя: <span th:text = "${cars[1].type}"></span></td>
+        </tr>
+        <tr>
+            <td>Мощность: <span th:text = "${cars[1].power}"></span> л.с.</td>
+            <td align="middle">
+                <form method="post">
+                    <input class="bucket-input" type="hidden" name="auto">
+                    <button type="submit" class="add-item">Добавить в корзину</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+
+    <table class="table" border="1" cellpadding="20" cellspacing="0" height="300px">
+        <tr>
+            <td rowspan="3" width="30%">
+                <img th:src="@{/images/3.jpg}" width="100%">
+            </td>
+            <td>Название: <span class="car" th:text = "${cars[2].name}"></span></td>
+            <td rowspan="2" width="25%">Цена: <span th:text = "${cars[2].price} + ' руб.'"></span></td>
+        </tr>
+        <tr>
+            <td>Тип двигателя: <span th:text = "${cars[2].type}"></span></td>
+        </tr>
+        <tr>
+            <td>Мощность: <span th:text = "${cars[2].power}"></span> л.с.</td>
+            <td align="middle">
+                <form method="post">
+                    <input class="bucket-input" type="hidden" name="auto">
+                    <button type="submit" class="add-item">Добавить в корзину</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+-->
+	<script>
+		var name = "asd";
+
+		$.get('file.php', {name: name}, function(data){
+			$("#get").html(data);
+		});
+	</script>
+
+	<script type="text/javascript" th:src="@{/js/file.php}"></script>
 	<script type="text/javascript" th:src="@{/js/myJS.js}"></script>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </body>
 </html>
