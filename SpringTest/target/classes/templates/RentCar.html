@@ -8,7 +8,6 @@
     <link rel="stylesheet" th:src="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/css-main.css}"/>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
 <body>
 	<header>
@@ -40,17 +39,11 @@
 		<tr>
 			<td>Мощность: <span th:text = "${cars[0].power}"></span> л.с.</td>
 			<td align="middle">
-				<form>
-                    <input class="bucket-input" type="text" name="auto" th:value="${cars[0].name}">
+                    <input class="bucket-input" type="hidden" th:value="${cars[0].name}">
 					<input type="submit" class="add-item" value="Добавить в корзину">
-				</form>
 			</td>
 		</tr>
 	</table>
-
-	<div id="get"></div>
-
-<!--
 
     <table class="table" border="1" cellpadding="20" cellspacing="0" height="300px">
         <tr>
@@ -66,10 +59,8 @@
         <tr>
             <td>Мощность: <span th:text = "${cars[1].power}"></span> л.с.</td>
             <td align="middle">
-                <form method="post">
-                    <input class="bucket-input" type="hidden" name="auto">
-                    <button type="submit" class="add-item">Добавить в корзину</button>
-                </form>
+				<input class="bucket-input" type="hidden" th:value="${cars[1].name}">
+				<input type="submit" class="add-item" value="Добавить в корзину">
             </td>
         </tr>
     </table>
@@ -88,23 +79,12 @@
         <tr>
             <td>Мощность: <span th:text = "${cars[2].power}"></span> л.с.</td>
             <td align="middle">
-                <form method="post">
-                    <input class="bucket-input" type="hidden" name="auto">
-                    <button type="submit" class="add-item">Добавить в корзину</button>
-                </form>
+				<input class="bucket-input" type="hidden" th:value="${cars[2].name}">
+				<input type="submit" class="add-item" value="Добавить в корзину">
             </td>
         </tr>
     </table>
--->
-	<script>
-		var name = "asd";
 
-		$.get('file.php', {name: name}, function(data){
-			$("#get").html(data);
-		});
-	</script>
-
-	<script type="text/javascript" th:src="@{/js/file.php}"></script>
 	<script type="text/javascript" th:src="@{/js/myJS.js}"></script>
 </body>
 </html>

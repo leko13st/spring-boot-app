@@ -34,23 +34,24 @@ function inputChange(){
 
 var value = document.querySelectorAll('.car')[0].innerText;
 
-function ready(i){
+/*function ready(i){
     document.querySelectorAll(".bucket-input")[i].value = document.querySelectorAll('.car')[i].innerText;
 }
 
-document.addEventListener("DOMContentLoaded", ready(0));
+document.addEventListener("DOMContentLoaded", ready(0));*/
 
-jQuery(document).ready(function(){
-    jQuery("input").bind("click", function () {
+$(document).ready(function(){
+    $(".add-item").on("click", function (e) {
         var name = $(".bucket-input").val(); //post variables
+        e.preventDefault();
 
         $.ajax({
             type: "POST", // HTTP метод  POST или GET
-            url: "addAuto.php", //url-адрес, по которому будет отправлен запрос
+            url: "/rent-auto",// url-адрес, по которому будет отправлен запрос
             dataType:"json", // Тип данных,  которые пришлет сервер в ответ на запрос ,например, HTML, json
             data: {name:name}, //данные, которые будут отправлены на сервер (post переменные)
             success:function(response){
-            $(".bucket-input").val(''); //очищаем текстовое поле после успешной вставки
+                $('.add-item')[0].val('Товар добавлен!')
             },
             error:function (xhr, ajaxOptions, thrownError){
                 alert(thrownError); //выводим ошибку
