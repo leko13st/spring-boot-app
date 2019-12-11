@@ -43,7 +43,7 @@ $(document).ready(function(){
             dataType:"json", // Тип данных,  которые пришлет сервер в ответ на запрос ,например, HTML, json
             data: {name: name}, //данные, которые будут отправлены на сервер (post переменные)
             success:function(response){
-                $('.add-item').val('Товар добавлен!')
+               /* $('.add-item').val('Товар добавлен!')*/
             },
             error:function (xhr, ajaxOptions, thrownError){
                 alert(thrownError); //выводим ошибку

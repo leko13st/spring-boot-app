@@ -25,65 +25,27 @@
 		<input id="input-filter" type="text" name="filter" placeholder="Фильтр..." oninput="inputChange()">
 	</header>
 
-	<table class="table" border="1" cellpadding="20" cellspacing="0" height="300px">
-		<tr>
-			<td rowspan="3" width="30%">
-				<img th:src="@{/images/1.png}" width="100%">
-			</td>
-			<td>Название: <span class="car" th:text = "${cars[0].name}"></span></td>
-			<td rowspan="2" width="25%">Цена: <span th:text = "${cars[0].price}"></span></td>
-		</tr>
-		<tr>
-			<td>Тип двигателя: <span th:text = "${cars[0].type}"></span></td>
-		</tr>
-		<tr>
-			<td>Мощность: <span th:text = "${cars[0].power}"></span> л.с.</td>
-			<td align="middle">
-                    <input class="bucket-input" type="hidden" th:value="${cars[0].name}">
-					<input type="submit" class="add-item" value="Добавить в корзину">
-			</td>
-		</tr>
-	</table>
-
-    <table class="table" border="1" cellpadding="20" cellspacing="0" height="300px">
-        <tr>
-            <td rowspan="3" width="30%">
-                <img th:src="@{/images/2.png}" width="100%">
-            </td>
-            <td>Название: <span class="car" th:text = "${cars[1].name}"></span></td>
-            <td rowspan="2" width="25%">Цена: <span th:text = "${cars[1].price} + ' руб.'"></span></td>
-        </tr>
-        <tr>
-            <td>Тип двигателя: <span th:text = "${cars[1].type}"></span></td>
-        </tr>
-        <tr>
-            <td>Мощность: <span th:text = "${cars[1].power}"></span> л.с.</td>
-            <td align="middle">
-				<input class="bucket-input" type="hidden" th:value="${cars[1].name}">
-				<input type="submit" class="add-item" value="Добавить в корзину">
-            </td>
-        </tr>
-    </table>
-
-    <table class="table" border="1" cellpadding="20" cellspacing="0" height="300px">
-        <tr>
-            <td rowspan="3" width="30%">
-                <img th:src="@{/images/3.png}" width="100%">
-            </td>
-            <td>Название: <span class="car" th:text = "${cars[2].name}"></span></td>
-            <td rowspan="2" width="25%">Цена: <span th:text = "${cars[2].price} + ' руб.'"></span></td>
-        </tr>
-        <tr>
-            <td>Тип двигателя: <span th:text = "${cars[2].type}"></span></td>
-        </tr>
-        <tr>
-            <td>Мощность: <span th:text = "${cars[2].power}"></span> л.с.</td>
-            <td align="middle">
-				<input class="bucket-input" type="hidden" th:value="${cars[2].name}">
-				<input type="submit" class="add-item" value="Добавить в корзину">
-            </td>
-        </tr>
-    </table>
+    <div th:each="auto : ${cars}">
+        <table class="table" border="1" cellpadding="20" cellspacing="0" height="300px">
+            <tr>
+                <td rowspan="3" width="30%" >
+                   <img th:src="'images/' + ${auto.name} + '.png'" width="100%">
+                </td>
+                <td>Название: <span class="car" th:text = "${auto.name}"></span></td>
+                <td rowspan="2" width="25%">Цена: <span th:text = "${auto.price}"></span></td>
+            </tr>
+            <tr>
+                <td>Тип двигателя: <span th:text = "${auto.type}"></span></td>
+            </tr>
+            <tr>
+                <td>Мощность: <span th:text = "${auto.power}"></span> л.с.</td>
+                <td align="middle">
+                        <input class="bucket-input" type="hidden" th:value="${auto.name}">
+                        <input type="submit" class="add-item" value="Добавить в корзину">
+                </td>
+            </tr>
+        </table>
+    </div>
 
 	<script type="text/javascript" th:src="@{/js/myJS.js}"></script>
 </body>

@@ -22,7 +22,7 @@ public class RentCarController {
     private BucketRepos bucketRepos;
     List<Bucket> bucket;
 
-    @RequestMapping(value = "/rent-auto", method = RequestMethod.GET)
+    @GetMapping("/rent-auto")
     public String RentCar(Map<String, Object> model) {
         cars = carsRepos.findAll();
         model.put("cars", cars);
@@ -32,15 +32,19 @@ public class RentCarController {
         return "/RentCar";
     }
 
-    @RequestMapping(value = "/rent-auto", method = RequestMethod.POST)
+    @PostMapping("/rent-auto")
     @ResponseBody
     public String add_auto(@RequestParam String name, Map<String, Object> model){
         Bucket b = new Bucket(name);
         bucketRepos.save(b);
-
-        bucket = (List<Bucket>) bucketRepos.findAll();
-        model.put("bucket", bucket.size());
         return "{}";
+    }
+
+    @GetMapping("/bucket")
+    public String bucket(Map<String, Object> model){
+        var cars = (List<Bucket>) bucketRepos.findAll();
+        model.put("cars", cars);
+        return "Bucket";
     }
 
 }

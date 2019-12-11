@@ -6,32 +6,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
-	<link rel="stylesheet" th:href="@{/css/cssMain.css}"/>
-	<!-- <link rel="stylesheet" href="../static/css/css-main.css"> -->
+	<link rel="stylesheet" th:href="@{/css/css-bucket.css}"/>
 </head>
-<body onload="statePrice()">
-<!--
-	<div class="block ApplyBlockMain">
-		<div class="blockApply">
-			<div class="text">
-				Название: <span th:text="${carName}"></span><br/>Тип двигателя: <span th:text="${EngineType}"></span><br/>Мощность: <span th:text="${Power}"></span><p>Цена: <span id="price" th:text="${Price}"> руб.</span></p>
-			</div>
-		</div>
-		<div class="blockApply">
-			<input class="place" type="text" placeholder="ФИО">
-			<input class="place" type="text" placeholder="Телефон">
-			<input class="place1" type="checkbox" id="cb" onchange="sum()"> Доставка
-			<p class="place">Итог: <span id="result"></span> руб.</p>
-		</div>
-		<div class="button1">
-			<form action="Bucket.html">
-				<button>Перейти к оплате</button>
-			</form>
-		</div>
-	</div>-->
-
-
-
+<body>
+<div th:each="auto : ${cars}">
+    <span th:text="${auto.auto}"></span>
+</div>
 </body>
 <script type="text/javascript" th:src="@{/js/myJS.js}"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
