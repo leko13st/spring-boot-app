@@ -22,14 +22,14 @@ public class RentCarController {
     private BucketRepos bucketRepos;
     List<Bucket> bucket;
 
-    @GetMapping("/rent-auto")
+    @RequestMapping(value = "/rent-auto", method = RequestMethod.GET)
     public String RentCar(Map<String, Object> model) {
         cars = carsRepos.findAll();
         model.put("cars", cars);
 
         bucket = (List<Bucket>) bucketRepos.findAll();
         model.put("bucket", bucket.size());
-        return "RentCar";
+        return "/RentCar";
     }
 
     @RequestMapping(value = "/rent-auto", method = RequestMethod.POST)

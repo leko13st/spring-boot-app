@@ -22,13 +22,13 @@
                 </div>
             </a>
 		</div>
-		<input id="input-filter" type="text" name="asd" placeholder="Фильтр..." oninput="inputChange()">
+		<input id="input-filter" type="text" name="filter" placeholder="Фильтр..." oninput="inputChange()">
 	</header>
 
 	<table class="table" border="1" cellpadding="20" cellspacing="0" height="300px">
 		<tr>
 			<td rowspan="3" width="30%">
-				<img th:src="@{/images/1.jpg}" width="100%">
+				<img th:src="@{/images/1.png}" width="100%">
 			</td>
 			<td>Название: <span class="car" th:text = "${cars[0].name}"></span></td>
 			<td rowspan="2" width="25%">Цена: <span th:text = "${cars[0].price}"></span></td>
@@ -48,7 +48,7 @@
     <table class="table" border="1" cellpadding="20" cellspacing="0" height="300px">
         <tr>
             <td rowspan="3" width="30%">
-                <img th:src="@{/images/2.jpg}" width="100%">
+                <img th:src="@{/images/2.png}" width="100%">
             </td>
             <td>Название: <span class="car" th:text = "${cars[1].name}"></span></td>
             <td rowspan="2" width="25%">Цена: <span th:text = "${cars[1].price} + ' руб.'"></span></td>

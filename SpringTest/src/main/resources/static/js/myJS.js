@@ -41,7 +41,7 @@ $(document).ready(function(){
             type: "POST", // HTTP метод  POST или GET
             url: "/rent-auto",// url-адрес, по которому будет отправлен запрос
             dataType:"json", // Тип данных,  которые пришлет сервер в ответ на запрос ,например, HTML, json
-            data: {name:name}, //данные, которые будут отправлены на сервер (post переменные)
+            data: {name: name}, //данные, которые будут отправлены на сервер (post переменные)
             success:function(response){
                 $('.add-item').val('Товар добавлен!')
             },
