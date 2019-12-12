@@ -44,6 +44,7 @@ $(document).ready(function(){
             data: {name: name}, //данные, которые будут отправлены на сервер (post переменные)
             success:function(response){
                /* $('.add-item').val('Товар добавлен!')*/
+               updateCart();
             },
             error:function (xhr, ajaxOptions, thrownError){
                 alert(thrownError); //выводим ошибку
@@ -51,3 +52,9 @@ $(document).ready(function(){
         });
     });
 });
+
+function updateCart(){
+
+}
+
+
