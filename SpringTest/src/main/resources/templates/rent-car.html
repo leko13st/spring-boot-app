@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" th:src="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
-    <link rel="stylesheet" th:href="@{/css/css-main.css}"/>
+    <link rel="stylesheet" th:href="@{/css/css-rent.css}"/>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
@@ -14,18 +14,18 @@
 		<div id="title-text">
 			Аренда авто
 		</div>
-		<div id="bucket-div">
-            <a href="http://localhost:8080/bucket">
-                <img th:src="@{/images/bucket.png}" width="100%" id="bucket-img">
+		<div id="busket-div">
+            <a href="http://localhost:8080/cart">
+                <img th:src="@{/images/busket.png}" width="100%" id="busket-img">
                 <div id="item-count-div">
-                    <span id="item-count" th:text="${bucket}"></span>
+                    <span id="item-count"></span>
                 </div>
             </a>
 		</div>
 		<input id="input-filter" type="text" name="filter" placeholder="Фильтр..." oninput="inputChange()">
 	</header>
 
-    <div th:each="auto : ${cars}">
+    <div th:each="auto, iter : ${cars}">
         <table class="table" border="1" cellpadding="20" cellspacing="0" height="300px">
             <tr>
                 <td rowspan="3" width="30%" >
@@ -40,13 +40,14 @@
             <tr>
                 <td>Мощность: <span th:text = "${auto.power}"></span> л.с.</td>
                 <td align="middle">
-                        <input class="bucket-input" type="hidden" th:value="${auto.name}">
-                        <input type="submit" class="add-item" value="Добавить в корзину">
+                    <div class="add-item-main">
+                        <input type="submit" class="add-item" value="Добавить товар">
+                    </div>
                 </td>
             </tr>
         </table>
     </div>
 
-	<script type="text/javascript" th:src="@{/js/myJS.js}"></script>
+	<script type="text/javascript" th:src="@{/js/js-rent.js}"></script>
 </body>
 </html>

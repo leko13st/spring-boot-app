@@ -1,23 +1,4 @@
 
-var result = document.getElementById('result');
-var price = document.getElementById('price');
-
-function statePrice(){
-    result.innerHTML = Number(price.innerHTML);
-}
-
-function sum(){
-	var chbox = document.getElementById('cb');
-
-	if (chbox.checked){
-		result.innerHTML = Number(price.innerHTML) + 3000;
-	}
-	else{
-		result.innerHTML = Number(price.innerHTML);
-	}
-}
-
-
 function inputChange(){
     var filter = document.getElementById('input-filter');
     let str = filter.value.toLowerCase();
@@ -32,9 +13,20 @@ function inputChange(){
     }
 }
 
+var name = "";
+
+window.onload = function (){
+     var k = document.getElementsByClassName("add-item");
+     for(var i = 0; i < k.length; i++){
+     	k[i].id = i;
+        k[i].onmouseup = function (){
+           name = document.querySelectorAll(".car")[this.id].innerText;
+        }
+     }
+}
+
 $(document).ready(function(){
     $(".add-item").on("click", function (e) {
-        var name = $(".bucket-input").val(); //post variables
         e.preventDefault();
 
         $.ajax({
@@ -43,8 +35,10 @@ $(document).ready(function(){
             dataType:"json", // Тип данных,  которые пришлет сервер в ответ на запрос ,например, HTML, json
             data: {name: name}, //данные, которые будут отправлены на сервер (post переменные)
             success:function(response){
-               /* $('.add-item').val('Товар добавлен!')*/
-               updateCart();
+                alert("Товар: " + name + " добавлен в корзину!");
+                jQuery.getJSON('/get-cart-count', function(data){
+                $('#item-count').text(data.count);
+                });
             },
             error:function (xhr, ajaxOptions, thrownError){
                 alert(thrownError); //выводим ошибку
@@ -53,8 +47,8 @@ $(document).ready(function(){
     });
 });
 
-function updateCart(){
-
-}
-
-
+$(document).ready(function(){
+    jQuery.getJSON('/get-cart-count', function(data){
+        $('#item-count').text(data.count);
+        });
+});

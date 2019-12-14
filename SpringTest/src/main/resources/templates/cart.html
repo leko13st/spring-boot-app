@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+
+	<title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" th:href="@{/css/css-cart.css}"/>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+	<header>
+		Корзина
+		<a href="rent-auto" id="back-to-store">Вернуться</a>
+	</header>
+	<table border="1" cellpadding="25" cellspacing="0">
+		<tr>
+			<th width="10%">ID</th>
+			<th width="80%">Название</th>
+			<th width="10%">Удаление</th>
+		</tr>
+		<tr th:each="car, iter : ${cars}">
+			<td th:text="${iter.count}" align="middle"></td>
+			<td class = "car" th:text="${car}"></td>
+			<td>
+				<button class="delete-auto" type="submit" name="delete">
+					<img th:src="@{images/delete.png}" width="20%">
+				</button>
+			</td>
+		</tr>
+	</table>
+	<footer>
+		<input id="go-to-order" type="submit" value="Оформить заказ">
+	</footer>
+</body>
+<script type="text/javascript" th:src="@{/js/js-cart.js}"></script>
+</html>
