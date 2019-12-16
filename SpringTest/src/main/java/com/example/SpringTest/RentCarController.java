@@ -1,6 +1,8 @@
 package com.example.SpringTest;
 
+import com.example.SpringTest.domain.Car_db;
 import com.example.SpringTest.domain.Cars;
+import com.example.SpringTest.repos.Car_dbRepos;
 import com.example.SpringTest.repos.CarsRepos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +20,10 @@ public class RentCarController {
     private CarsRepos carsRepos;
     Iterable<Cars> cars;
 
-    private static final String LIST_CARS_NAME = "list_cars_name";
+    @Autowired
+    private Car_dbRepos car_dbRepos;
+
+    private static final String LIST_CARS = "list_cars";
 
     @GetMapping("/rent-auto")
     public String RentCar(Map<String, Object> model) {
@@ -31,23 +36,40 @@ public class RentCarController {
 
     @PostMapping("/rent-auto")
     @ResponseBody
-    public String add_auto(@RequestParam String name, Map<String, Object> model, HttpServletRequest request) {
+    public String add_auto(@RequestParam String name, @RequestParam int price, Map<String, Object> model, HttpServletRequest request) {
         HttpSession session = request.getSession();
 
-        ArrayList<String> list_cars_name = (ArrayList<String>) session.getAttribute(LIST_CARS_NAME);
-        if (list_cars_name == null) list_cars_name = new ArrayList<>();
-        list_cars_name.add(name);
+        ArrayList<Cars> list_cars = (ArrayList<Cars>) session.getAttribute(LIST_CARS);
+        if (list_cars == null)
+            list_cars = new ArrayList<>();
 
-        session.setAttribute(LIST_CARS_NAME, list_cars_name);
-        model.put("cart", list_cars_name.size());
+        Cars car = new Cars(name, price);
+        list_cars.add(car);
+
+        session.setAttribute(LIST_CARS, list_cars);
+        model.put("cart", list_cars.size());
+
         return "{}";
+    }
+
+    @GetMapping("/passive-button-index")
+    @ResponseBody
+    public String getPassiveButtonName(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        ArrayList<Cars> cars = (ArrayList<Cars>) session.getAttribute(LIST_CARS);
+        String answer = "";
+        for (int i = 0; i < cars.size(); i++) {
+            if (i != 0) answer += ", ";
+            answer += "\"" + cars.get(i).getName() + "\"";
+        }
+        return "{\"indexes\":[" + answer + "]}";
     }
 
     @GetMapping("/cart")
     public String bucket(Map<String, Object> model, HttpServletRequest request){
         HttpSession session = request.getSession();
-        ArrayList<String> list_cars_name = (ArrayList<String>) session.getAttribute(LIST_CARS_NAME);
-        model.put("cars", list_cars_name);
+        ArrayList<Cars> list_cars = (ArrayList<Cars>) session.getAttribute(LIST_CARS);
+        model.put("cars", list_cars);
 
         return "cart";
     }
@@ -56,18 +78,35 @@ public class RentCarController {
     @ResponseBody
     public String getCartCount(HttpServletRequest request) {
         HttpSession session = request.getSession();
-        ArrayList<String> list_cars_name = (ArrayList<String>) session.getAttribute(LIST_CARS_NAME);
+        ArrayList<Cars> list_cars = (ArrayList<Cars>) session.getAttribute(LIST_CARS);
 
-        return "{\"count\":\"" +list_cars_name.size()+ "\"}";
+        return "{\"count\":\"" +list_cars.size()+ "\"}";
     }
 
-    @PostMapping("delete-cart-auto")
+    @PostMapping("/delete-cart-auto")
     @ResponseBody
     public String deleteCartAuto(@RequestParam int id, Map<String, Object> model, HttpServletRequest request){
         HttpSession session = request.getSession();
-        ArrayList<String> list_cars_name = (ArrayList<String>) session.getAttribute(LIST_CARS_NAME);
-        list_cars_name.remove(id);
-        session.setAttribute(LIST_CARS_NAME, list_cars_name);
+        ArrayList<Cars> list_cars = (ArrayList<Cars>) session.getAttribute(LIST_CARS);
+        list_cars.remove(id);
+        session.setAttribute(LIST_CARS, list_cars);
+
         return "{}";
+    }
+
+    @PostMapping("/cart/add-to-db")
+    public String addToDb(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        ArrayList<Cars> list_cars = (ArrayList<Cars>) session.getAttribute(LIST_CARS);
+
+        for (Cars s : list_cars) {
+            Car_db carDb = new Car_db(s.getName());
+            car_dbRepos.save(carDb);
+        }
+
+        list_cars.clear();
+        session.setAttribute(LIST_CARS, list_cars);
+
+        return "redirect:../cart";
     }
 }

@@ -21,9 +21,22 @@ header{
 	border: 2px solid black;
 }
 
+#select-city{
+    font-size: 20px;
+    width: 30%;
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+#city-form{
+    width: 120px;
+    display: inline-block;
+}
+
 #title-text{
     font-size: 40px;
-    width: 50%;
+    width: 30%;
     float: left;
 }
 

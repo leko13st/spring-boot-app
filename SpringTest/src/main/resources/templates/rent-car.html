@@ -11,6 +11,17 @@
 </head>
 <body>
 	<header>
+        <div id="select-city">
+            Город:
+            <form id="city-form" name="select_city">
+                <select name="city" onchange="changeCity()">
+                    <option selected value="Москва">Москва</option>
+                    <option value="Пермь">Пермь</option>
+                    <option value="Екатеринбург">Екатеринбург</option>
+                </select>
+            </form>
+        </div>
+
 		<div id="title-text">
 			Аренда авто
 		</div>
@@ -32,7 +43,7 @@
                    <img th:src="'images/' + ${auto.name} + '.png'" width="100%">
                 </td>
                 <td>Название: <span class="car" th:text = "${auto.name}"></span></td>
-                <td rowspan="2" width="25%">Цена: <span th:text = "${auto.price}"></span></td>
+                <td align="middle" rowspan="2" width="25%">Цена: <span class="price" th:text = "${auto.price}"></span></td>
             </tr>
             <tr>
                 <td>Тип двигателя: <span th:text = "${auto.type}"></span></td>

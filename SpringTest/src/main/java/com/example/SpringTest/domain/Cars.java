@@ -10,10 +10,18 @@ public class Cars {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
 
-    public String name;
-    public String type;
-    public String power;
-    public Integer price;
+    private String name;
+    private String type;
+    private String power;
+    private Integer price;
+
+    public Cars() {
+    }
+
+    public Cars(String name, Integer price) {
+        this.name = name;
+        this.price = price;
+    }
 
     public Integer getId() {
         return id;

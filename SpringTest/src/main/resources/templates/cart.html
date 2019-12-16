@@ -17,12 +17,18 @@
 	<table border="1" cellpadding="25" cellspacing="0">
 		<tr>
 			<th width="10%">ID</th>
-			<th width="80%">Название</th>
+			<th width="50%">Название</th>
+			<th width="20%">Цена</th>
+			<th width="10%">Количество</th>
 			<th width="10%">Удаление</th>
 		</tr>
 		<tr th:each="car, iter : ${cars}">
 			<td th:text="${iter.count}" align="middle"></td>
-			<td class = "car" th:text="${car}"></td>
+			<td class = "car" th:text="${car.name}"></td>
+			<td align="middle" class="price" th:text="${car.price}"></td>
+			<td align="middle">
+				<input class="count-auto" size="5" type="text" value="1" min="1">
+			</td>
 			<td>
 				<button class="delete-auto" type="submit" name="delete">
 					<img th:src="@{images/delete.png}" width="20%">
@@ -30,8 +36,16 @@
 			</td>
 		</tr>
 	</table>
+	<table class="table-price" border="1" cellpadding="25" cellspacing="0">
+		<tr>
+			<td width="30%"><b>Полная цена</b></td>
+			<td align="middle"><span id="total-price"></span> руб.</td>
+		</tr>
+	</table>
 	<footer>
-		<input id="go-to-order" type="submit" value="Оформить заказ">
+		<form method="post" action="/cart/add-to-db">
+			<input id="go-to-order" type="submit" value="Оформить заказ">
+		</form>
 	</footer>
 </body>
 <script type="text/javascript" th:src="@{/js/js-cart.js}"></script>
