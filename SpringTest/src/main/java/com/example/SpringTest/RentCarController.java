@@ -5,6 +5,10 @@ import com.example.SpringTest.domain.Cars;
 import com.example.SpringTest.repos.Car_dbRepos;
 import com.example.SpringTest.repos.CarsRepos;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -108,5 +112,21 @@ public class RentCarController {
         session.setAttribute(LIST_CARS, list_cars);
 
         return "redirect:../cart";
+    }
+
+    @GetMapping(value = "/get-cars", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public ResponseEntity<String> GetCars(){
+        HttpHeaders responseHeaders = new HttpHeaders();
+        responseHeaders.set("Access-Control-Allow-Origin", "*");
+
+        ArrayList<Cars> cars_list = (ArrayList<Cars>) carsRepos.findAll();
+
+        String answer = "";
+        for (int i = 0; i < cars_list.size(); i++) {
+            if (i != 0) answer += ", ";
+            answer += "\"" + cars_list.get(i).getName() + "\"";
+        }
+        return new ResponseEntity<String>("{\"cars\":[" + answer + "]}", responseHeaders, HttpStatus.CREATED);
     }
 }
