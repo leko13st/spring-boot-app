@@ -124,9 +124,22 @@ public class RentCarController {
 
         String answer = "";
         for (int i = 0; i < cars_list.size(); i++) {
-            if (i != 0) answer += ", ";
-            answer += "\"" + cars_list.get(i).getName() + "\"";
+            if (i != 0) answer += ",";
+            answer += "{\"id\":\"" + cars_list.get(i).getId() + "\", \"name\":\"" + cars_list.get(i).getName() + "\", \"price\":\"" + cars_list.get(i).getPrice() + "\"}";
         }
-        return new ResponseEntity<String>("{\"cars\":[" + answer + "]}", responseHeaders, HttpStatus.CREATED);
+        return new ResponseEntity<>("{\"cars\":[" + answer + "]}", responseHeaders, HttpStatus.CREATED);
+    }
+
+    @CrossOrigin("*")
+    @PostMapping("/buy-cars")
+    public String addToDbfromReact(@RequestParam String srcData){
+
+        String ans = null;
+        /*for (String s : cars_list) {
+            Car_db carDb = new Car_db(s);
+            car_dbRepos.save(carDb);
+        }*/
+
+        return "";
     }
 }

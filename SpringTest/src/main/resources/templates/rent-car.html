@@ -8,23 +8,23 @@
     <link rel="stylesheet" th:src="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/css-rent.css}"/>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 </head>
 <body>
+    <div id="select-city">
+        <form id="city-form" name="select_city">
+            <select name="city" onchange="changeCity()">
+                <option selected value="Москва">Москва</option>
+                <option value="Пермь">Пермь</option>
+                <option value="Екатеринбург">Екатеринбург</option>
+            </select>
+        </form>
+    </div>
 	<header>
-        <div id="select-city">
-            Город:
-            <form id="city-form" name="select_city">
-                <select name="city" onchange="changeCity()">
-                    <option selected value="Москва">Москва</option>
-                    <option value="Пермь">Пермь</option>
-                    <option value="Екатеринбург">Екатеринбург</option>
-                </select>
-            </form>
-        </div>
-
 		<div id="title-text">
 			Аренда авто
 		</div>
+        <input id="input-filter" type="text" name="filter" placeholder="Фильтр..." oninput="inputChange()">
 		<div id="busket-div">
             <a href="http://localhost:8080/cart">
                 <img th:src="@{/images/busket.png}" width="100%" id="busket-img">
@@ -33,11 +33,10 @@
                 </div>
             </a>
 		</div>
-		<input id="input-filter" type="text" name="filter" placeholder="Фильтр..." oninput="inputChange()">
 	</header>
 
     <div th:each="auto, iter : ${cars}">
-        <table class="table" border="1" cellpadding="20" cellspacing="0" height="300px">
+        <table class="table table-striped" border="1" cellpadding="20" cellspacing="0" height="300px">
             <tr>
                 <td rowspan="3" width="30%" >
                    <img th:src="'images/' + ${auto.name} + '.png'" width="100%">
